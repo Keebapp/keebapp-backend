@@ -1,7 +1,7 @@
 # keebapp-backend
 An app about keyboards, originating from the design of u/Sonnenschirm
 
-###Setup
+### Setup
 Firstly, ensure that the environment for python is installed and packages in requirements.txt are met.
 Then, rename the file ```config.example.py``` into ```config.py```, and fill in the relevant details.
 
