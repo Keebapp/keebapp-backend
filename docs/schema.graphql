@@ -1,0 +1,134 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+type KeyboardBuild {
+    id: ID!
+    name: String!
+    user: User!
+    description: String
+    keycaps: Keycaps!
+    switches: Switches!
+    stabs: Stabs
+    case: Case
+    pcb: PCB
+    plate: Plate
+    layout: KeyboardLayout!
+}
+
+interface KeyboardComponent {
+    id: ID!
+    name: String!
+    manufacturer: String
+}
+
+type Keycaps implements KeyboardComponent{
+    id: ID!
+    name: String!
+    manufacturer: String
+    material: KeycapMaterial!
+    profile: KeycapProfile!
+}
+
+type Switches implements KeyboardComponent {
+    id: ID!
+    name: String!
+    manufacturer: String
+    feedback: SwitchFeedback!
+    springWeight: Int!
+}
+
+type Stabs implements KeyboardComponent {
+    id: ID!
+    name: String!
+    manufacturer: String
+}
+
+type Case implements KeyboardComponent {
+    id: ID!
+    name: String!
+    manufacturer: String
+    material: String!
+}
+
+type PCB implements KeyboardComponent {
+    id: ID!
+    name: String!
+    manufacturer: String
+}
+
+type Plate implements KeyboardComponent {
+    id: ID!
+    name: String!
+    manufacturer: String
+    material: String!
+}
+
+type MiscComponent implements KeyboardComponent{
+    id: ID!
+    name: String!
+    manufacturer: String
+    description: String!
+}
+
+type Vendor {
+    id: ID!
+    name: String!
+    link: String!
+    region: VendorRegion!
+}
+
+type Designer {
+    id: ID!
+    name: String!
+    socialMediaLinks: [SocialMediaLinks]
+}
+
+type SocialMediaLinks {
+    reddit: String
+    instagram: String
+    youtube: String
+}
+
+
+
+enum KeyboardLayout {
+    FULLSIZE
+    TKL
+    SIXTY
+    SIXTYFIVE
+    SEVENTYFIVE
+    FOURTY
+    ERGO
+    # ...
+    MISC
+}
+
+enum SwitchFeedback {
+    LINEAR
+    TACTILE
+    CLICKY
+}
+
+enum KeycapMaterial {
+    PBT
+    ABS
+    POM
+    # ...
+    MISC
+}
+
+enum KeycapProfile {
+    CHERRY
+    SA
+    ASA
+    MT3
+    # ...
+    MISC
+}
+
+enum VendorRegion {
+    # ...
+}
